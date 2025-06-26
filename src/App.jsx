@@ -22,12 +22,36 @@ function App() {
         <div className="container">
             <h2>Notion Sync Widget</h2>
             <form onSubmit={handleSubmit}>
-                <input placeholder="Title" value={title} onChange={e => setTitle(e.target.value)} required />
-                <input type="datetime-local" value={date} onChange={e => setDate(e.target.value)} required />
-                <textarea placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} />
+                <label>
+                    Title
+                    <input
+                        type="text"
+                        placeholder="e.g., Meeting with client"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Date & Time
+                    <input
+                        type="datetime-local"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Description
+                    <textarea
+                        placeholder="Details (optional)"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </label>
                 <button type="submit">Sync to Notion</button>
             </form>
-            <p>{result}</p>
+            {result && <p className="result">{result}</p>}
         </div>
     );
 }
