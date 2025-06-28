@@ -85,7 +85,7 @@ const App: FC = () => {
 
   return (
     <div style={{ height: '100vh', width: '100vw', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ padding: '10px', backgroundColor: '#333', color: 'white' }}>
+      <div style={{ padding: '10px', backgroundColor: '#333', color: 'white', margin: 20 }}>
         <input
           type="text"
           placeholder="Event Title"
@@ -112,7 +112,7 @@ const App: FC = () => {
 
 
       {selectedEvent && (
-        <div style={{ marginTop: 10, padding: 10, backgroundColor: '#222', color: 'white' }}>
+        <div style={{ marginTop: 10, padding: 10, backgroundColor: '#222', color: 'white', margin: 20 }}>
           <h4>Edit Event</h4>
           <input
             type="text"
@@ -159,9 +159,7 @@ const App: FC = () => {
         </div>
       )}
 
-
-
-      <div style={{ flex: 1, overflowY: 'auto' }}>
+      <div style={{ flex: 1, overflowY: 'auto', margin: 20 }}>
         <DnDCalendar
           defaultView="day"
           views={['day']}
