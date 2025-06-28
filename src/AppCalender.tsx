@@ -85,41 +85,121 @@ const App: FC = () => {
 
   return (
     <div style={{ height: '100vh', width: '100vw', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ padding: '10px', backgroundColor: '#333', color: 'white', margin: 20 }}>
+      <div
+        style={{
+          width: '300px',
+          padding: '16px',
+          margin: '20px',
+          backgroundColor: '#2c2c2c',
+          color: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px'
+        }}
+      >
         <input
           type="text"
           placeholder="Event Title"
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
+          style={{
+            padding: '8px',
+            borderRadius: '4px',
+            border: '1px solid #555',
+            backgroundColor: '#444',
+            color: 'white'
+          }}
         />
         <input
           type="datetime-local"
           value={newStart}
           onChange={(e) => setNewStart(e.target.value)}
+          style={{
+            padding: '8px',
+            borderRadius: '4px',
+            border: '1px solid #555',
+            backgroundColor: '#444',
+            color: 'white'
+          }}
         />
         <input
           type="datetime-local"
           value={newEnd}
           onChange={(e) => setNewEnd(e.target.value)}
+          style={{
+            padding: '8px',
+            borderRadius: '4px',
+            border: '1px solid #555',
+            backgroundColor: '#444',
+            color: 'white'
+          }}
         />
-        <select value={newStatus} onChange={(e) => setNewStatus(e.target.value as MyEvent['status'])}>
+        <select
+          value={newStatus}
+          onChange={(e) => setNewStatus(e.target.value as MyEvent['status'])}
+          style={{
+            padding: '8px',
+            borderRadius: '4px',
+            border: '1px solid #555',
+            backgroundColor: '#444',
+            color: 'white'
+          }}
+        >
           <option value="confirmed">Confirmed</option>
           <option value="pending">Pending</option>
           <option value="cancelled">Cancelled</option>
         </select>
-        <button onClick={handleAddEvent}>Add Event</button>
+        <button
+          onClick={handleAddEvent}
+          style={{
+            padding: '10px',
+            backgroundColor: '#4caf50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Add Activity
+        </button>
       </div>
 
-
       {selectedEvent && (
-        <div style={{ marginTop: 10, padding: 10, backgroundColor: '#222', color: 'white', margin: 20 }}>
-          <h4>Edit Event</h4>
+        <div style={{
+          width: '300px',
+          padding: '16px',
+          margin: '20px',
+          backgroundColor: '#2c2c2c',
+          color: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px'
+        }}>
+          <h4>Edit Activity</h4>
           <input
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #555',
+              backgroundColor: '#444',
+              color: 'white'
+            }}
             type="text"
             value={selectedEvent.title}
             onChange={(e) => setSelectedEvent({ ...selectedEvent, title: e.target.value })}
           />
           <input
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #555',
+              backgroundColor: '#444',
+              color: 'white'
+            }}
             type="datetime-local"
             value={new Date(selectedEvent.start).toISOString().slice(0, 16)}
             onChange={(e) =>
@@ -127,6 +207,13 @@ const App: FC = () => {
             }
           />
           <input
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #555',
+              backgroundColor: '#444',
+              color: 'white'
+            }}
             type="datetime-local"
             value={new Date(selectedEvent.end).toISOString().slice(0, 16)}
             onChange={(e) =>
@@ -134,6 +221,13 @@ const App: FC = () => {
             }
           />
           <select
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #555',
+              backgroundColor: '#444',
+              color: 'white'
+            }}
             value={selectedEvent.status}
             onChange={(e) =>
               setSelectedEvent({ ...selectedEvent, status: e.target.value as MyEvent['status'] })
@@ -152,6 +246,14 @@ const App: FC = () => {
               )
               setSelectedEvent(null)
             }}
+            style={{
+              padding: '10px',
+              backgroundColor: '#4caf50',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer'
+            }}
           >
             Save Changes
           </button>
@@ -165,7 +267,7 @@ const App: FC = () => {
           views={['day']}
           events={events}
           localizer={localizer}
-          resizable={false} 
+          resizable={false}
           onEventDrop={undefined}
           onEventResize={undefined}
           style={{ height: '100%' }}
