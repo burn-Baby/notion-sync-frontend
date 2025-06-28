@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import InstagramFeed from './InstagramFeed';
 
 function App() {
     const [title, setTitle] = useState("");
@@ -19,8 +20,13 @@ function App() {
     };
 
     return (
-        <div className="container">
-            <h2>Notion Sync Widget</h2>
+        <div className="container" style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+           <div style={{ flex: 1, width: "50%" }}>
+      <h4>My Instagram Feed</h4>
+      <InstagramFeed />
+    </div>
+            <div>
+                <h2>Notion Sync Widget</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     Title
@@ -52,6 +58,7 @@ function App() {
                 <button type="submit">Sync to Notion</button>
             </form>
             {result && <p className="result">{result}</p>}
+            </div>
         </div>
     );
 }
